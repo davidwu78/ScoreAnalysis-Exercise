@@ -2,8 +2,8 @@
 
 Clone the project 
 ```
-$ git clone https://github.com/davidwu78/coachaiimp.git
-$ cd coachaiimp
+$ git clone https://github.com/davidwu78/ScoreAnalysis-Answer.git
+$ cd ScoreAnalysis-Answer
 ```
 
 Install packages
