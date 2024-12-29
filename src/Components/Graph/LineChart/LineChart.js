@@ -41,9 +41,19 @@ class LineChart extends Component {
     const { playerName, rivalName } = this.props;
     let minrally = undefined;
     let maxrally = undefined;
+
+
+          // TODO: 初始化資料
+          // 使用 axios 從 API 獲取資料
+          // 提示: 
+          // 1. 使用 try-catch 處理 API 請求
+          // 2. API endpoint: `${process.env.REACT_APP_API_URL}/count`
+          // 3. 需要傳入 match 和 id_token 參數
     try {
       const { idToken } = this.props.currentUser;
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/count?match=${matchId}&id_token=${idToken}`);
+          // 在此實作 API 請求
+          // const response = await ...
       if (response.status !== 200) {
         throw Error(response.statusText);
       }
@@ -53,19 +63,9 @@ class LineChart extends Component {
       return;
     }
     [data,set,minrally,maxrally] = this.data_filter(data,set,minrally,maxrally,0);
-    // d3.selectAll("svg").remove();
-    // var svg_legend = d3.select("#line").append("svg")
-    //           .attr("width", '100%')
-    //           .attr("height", '5vh')
 
     var posx = 150;
     var posy = 20;
-    // svg_legend.append("circle").attr("cx",posx).attr("cy",posy).attr("r", 6).style("fill", "rgb(255, 204, 37)")
-    // svg_legend.append("circle").attr("cx",posx+200).attr("cy",posy).attr("r", 6).style("fill", "rgb(67, 219, 229)")
-    // svg_legend.append("text").attr("class", "d3_legend").attr("x", posx+10).attr("y", posy)
-    //       .text("Player A Win").style("fill","rgb(255, 204, 37)").attr("alignment-baseline","middle")
-    // svg_legend.append("text").attr("class", "d3_legend").attr("x", posx+200+10).attr("y", posy)
-    //       .text("Player B Win").style("fill","rgb(67, 219, 229)").attr("alignment-baseline","middle")
 
     var canv = document.createElement('canvas');
     canv.id = 'line_chart';
@@ -325,14 +325,22 @@ class LineChart extends Component {
         }
 
         let data2;
-        try {
-        const { idToken } = this.props.currentUser;
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/type?match=${matchId}&id_token=${idToken}`);
-          if (response.status !== 200) {
-            throw Error(response.statusText);
-          }
-          data2 = response.data;
-        } catch (error) {
+          // TODO: 初始化資料
+          // 使用 axios.get 從 API 獲取資料
+          // 提示: 
+          // 1. 使用 try-catch 處理 API 請求
+          // 2. API endpoint: `${process.env.REACT_APP_API_URL}/count`
+          // 3. 需要傳入 match 和 id_token 參數
+          try {
+            const { idToken } = this.props.currentUser;
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/count?match=${matchId}&id_token=${idToken}`);
+                // 在此實作 API 請求
+                // const response = await ...
+            if (response.status !== 200) {
+              throw Error(response.statusText);
+            }
+            data = response.data;
+          } catch (error) {
           console.log(error);
           return;
         }
@@ -364,11 +372,6 @@ class LineChart extends Component {
           dataB.push(data2[index+1].result[i].count)
         }
 
-        // console.log(dataA)
-        // console.log(dataB)
-        
-        // this.setState({ data: data });
-        // this.setState({ data2: data2 });
 
         $("#radarChart").show(function(event){
           //filter data to specific rally

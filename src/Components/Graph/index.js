@@ -131,38 +131,7 @@ class Graph extends Component {
             />
           </Row>
         </Wrapper>
-        <Wrapper>
-          <Row>
-            <BlockTitle
-              id="graph-errorType"
-              noPadding
-              instruction={(
-                <>
-                  顯示雙方選手因失誤而失分時，為受迫性/非受迫性失誤的數量
-                  <br />
-                  滑鼠移至柱狀上會顯示數量
-                </>
-              )}
-            >
-              {t('single.graph.errorType.title')}
-            </BlockTitle>
-          </Row>
-          <Row noPadding>
-            <Legend
-              playerName={playerName}
-              rivalName={rivalName}
-              center
-            />
-          </Row>
-          <Row>
-            <LoseError
-              matchId={matchId}
-              playerName={playerName}
-              rivalName={rivalName}
-              set={targetSet}
-            />
-          </Row>
-        </Wrapper>
+        
         <Wrapper>
           <Row>
             <BlockTitle
@@ -194,71 +163,6 @@ class Graph extends Component {
               playerName={playerName}
               rivalName={rivalName}
               set={targetSet}
-            />
-          </Row>
-        </Wrapper>
-        <Wrapper>
-          <Row>
-            <BlockTitle
-              to="graph-scoreTitle"
-              noPadding
-              instruction={(
-                <>
-                  以雷達圖顯示雙方選手得分時，所擊出的球種
-                  <br />
-                  滑鼠移至點上會顯示數量
-                </>
-              )}
-              placement="top"
-              ballType
-            >
-              {t('single.graph.ballType.scoreTitle')}
-            </BlockTitle>
-          </Row>
-          <Row noPadding>
-            <Legend
-              playerName={playerName}
-              rivalName={rivalName}
-              center
-            />
-          </Row>
-          <Row nolimit>
-            <WinBallType
-              matchId={matchId}
-              playerName={playerName}
-              rivalName={rivalName}
-              set={targetSet}
-            />
-          </Row>
-        </Wrapper>
-        <Wrapper>
-          <Row>
-            <BlockTitle
-              id="graph-loseDistribution"
-              noPadding
-              instruction={(
-                <>
-                  顯示雙方選手失分時，球在各個落點區域的比例
-                </>
-              )}
-            >
-              {t('single.graph.loseDistribution')}
-            </BlockTitle>
-          </Row>
-          <Row noPadding>
-            <Legend
-              playerName={playerName}
-              rivalName={rivalName}
-              center
-            />
-          </Row>
-          <Row>
-            <LoseDistribution
-              matchId={matchId}
-              playerName={playerName}
-              rivalName={rivalName}
-              set={targetSet}
-              display={this.props.display}
             />
           </Row>
         </Wrapper>
