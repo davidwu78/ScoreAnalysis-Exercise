@@ -2,8 +2,8 @@
 
 Clone the project 
 ```
-$ git clone https://github.com/davidwu78/ScoreAnalysis-Answer.git
-$ cd ScoreAnalysis-Answer
+$ git clone https://github.com/davidwu78/ScoreAnalysis-Exercise.git
+$ cd ScoreAnalysis-Exercise
 ```
 
 Install packages
