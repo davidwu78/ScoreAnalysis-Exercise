@@ -51,7 +51,7 @@ class LineChart extends Component {
           // 3. 需要傳入 match 和 id_token 參數
     try {
       const { idToken } = this.props.currentUser;
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/count?match=${matchId}&id_token=${idToken}`);
+      
           // 在此實作 API 請求
           // const response = await ...
       if (response.status !== 200) {
@@ -333,7 +333,6 @@ class LineChart extends Component {
           // 3. 需要傳入 match 和 id_token 參數
           try {
             const { idToken } = this.props.currentUser;
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/count?match=${matchId}&id_token=${idToken}`);
                 // 在此實作 API 請求
                 // const response = await ...
             if (response.status !== 200) {

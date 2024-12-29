@@ -84,17 +84,17 @@ class LoseBallType extends Component {
     try {
         // 在此實作 API 請求
         // const response = await ...
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/count?match=${matchId}&id_token=${idToken}`);
-      if (response.status !== 200) {
-        throw Error(response.statusText);
-      }
+      
+      // if (response.status !== 200) {
+      //   throw Error(response.statusText);
+      // }
 
       /* 資料過濾
      * 使用 this.filteredBySet() 依據目前選擇的局數過濾資料
      * 參數: response.data (API 回應的資料)
      * 功能: 過濾出指定局數的資料，如果選擇全部局數則返回所有資料
      */
-       const filteredData = this.filteredBySet(response.data);
+       // const filteredData = this.filteredBySet(response.data);
 
       /* TODO: 分離 A、B 方資料
      * 使用 LoseBallType.filteredByPlayer() 分別過濾出 A、B 兩方的資料
@@ -102,11 +102,10 @@ class LoseBallType extends Component {
      * 參數 2: 'A' 或 'B' (指定要過濾的球員)
      * 功能: 過濾出該球員失分的資料
      */
-      const dataPlayerA = LoseBallType.filteredByPlayer(filteredData, 'A');
-      const dataPlayerB = LoseBallType.filteredByPlayer(filteredData, 'B');
-
-      this.calculateGraphData(dataPlayerA, 'A');
-      this.calculateGraphData(dataPlayerB, 'B');
+      // const dataPlayerA =
+      // const dataPlayerB = 
+      // this.calculateGraphData(dataPlayerA, 'A');
+      // this.calculateGraphData(dataPlayerB, 'B');
     } catch (error) {
       console.log(error);
     }
